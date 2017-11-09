@@ -420,6 +420,13 @@ export PATH=/usr/local/anaconda3/bin:"$PATH"
 
 alias dla="source activate dl"
 alias dld="source deactivate dl"
-alias vim=/usr/local/Cellar/neovim/0.2.0_1/bin/nvim
+alias vim=nvim
+alias n=nvim
+
+mkcd () {
+    mkdir -p $1
+    cd $1
+}
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -112,6 +112,7 @@ set showmatch
 set showtabline=2
 set laststatus=2
 set cursorline
+set title
 
 " set laststatus=2
 set t_Co=256
