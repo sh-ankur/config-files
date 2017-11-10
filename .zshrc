@@ -4,30 +4,12 @@
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 
-# powerlevel9k prompt theme
 #DEFAULT_USER=$USER
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_left"
 
-#POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{cyan}\/%F{blue}"
-#POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{grey}\/%F{white}"
-#POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{white}\/%F{grey}"
-#POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{235}\/%F{235}"
 POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
-#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="❯"
-#POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="❯"
-#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="❮"
-#POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="❮"
-
-#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
-#POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
-
-# Separators
-#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B4'
-#POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\uE0B5'
-#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B6'
-#POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=$'\uE0B7'
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0B4"
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
@@ -36,14 +18,8 @@ POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{grey}\u2570\uF460%f "
-
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
-
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{grey}\uF460%f "
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{clear}%F{cyan}%m%f%k %F{123}\uF460%f "
 
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -86,7 +62,6 @@ POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=""
 POWERLEVEL9K_VCS_GIT_GITLAB_ICON=""
 POWERLEVEL9K_VCS_GIT_ICON=""
 
-#POWERLEVEL9K_SSH_FOREGROUND="226"
 POWERLEVEL9K_SSH_FOREGROUND="yellow"
 POWERLEVEL9K_SSH_BACKGROUND="235"
 
@@ -170,24 +145,12 @@ fi
 
 source ~/.zplug/init.zsh
 
-#zplug "plugins/bundler", from:oh-my-zsh, if:"which bundle"
-#zplug "plugins/colored-man-pages", from:oh-my-zsh
-#zplug "plugins/extract", from:oh-my-zsh
-#zplug "plugins/fancy-ctrl-z", from:oh-my-zsh
-#zplug "plugins/git", from:oh-my-zsh, if:"which git"
-#zplug "plugins/globalias", from:oh-my-zsh
-#zplug "plugins/gpg-agent", from:oh-my-zsh, if:"which gpg-agent"
-#zplug "plugins/httpie", from:oh-my-zsh, if:"which httpie"
-#zplug "plugins/nanoc", from:oh-my-zsh, if:"which nanoc"
-#zplug "plugins/nmap", from:oh-my-zsh, if:"which nmap"
-#zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
-#zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh, if:"which git"
+zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
 
-#zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/enhancd", use:enhancd.sh
-#zplug "b4b4r07/zsh-vimode-visual", defer:3
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:next
-#zplug "knu/zsh-manydots-magic", use:manydots-magic, defer:2
 zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 zplug "zsh-users/zsh-autosuggestions", at:develop
 zplug "zsh-users/zsh-completions", defer:2
@@ -416,17 +379,13 @@ unfunction setup_agents
 export CC=gcc-7
 export CXX=g++-7
 
-export PATH=/usr/local/anaconda3/bin:"$PATH"
-
-alias dla="source activate dl"
-alias dld="source deactivate dl"
 alias vim=nvim
 alias n=nvim
 
+# make dir and cp
 mkcd () {
     mkdir -p $1
     cd $1
 }
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
