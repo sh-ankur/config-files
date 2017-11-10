@@ -58,6 +58,7 @@ Plug 'ajh17/Spacegray.vim'
 " Themes for vim
 Plug 'nightsense/nemo'
 Plug 'marcopaganini/termschool-vim-theme'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
@@ -112,7 +113,6 @@ set showmatch
 set showtabline=2
 set laststatus=2
 set cursorline
-set title
 
 " set laststatus=2
 set t_Co=256
@@ -126,9 +126,7 @@ let g:spacegray_italicize_comments = 1
 "     \ pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 
 set background=light
-colorscheme termschool
-" colorscheme spacegray
-" colorscheme nemo-light
+colorscheme cobalt2 
 
 " deoplete settings
 let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/'
