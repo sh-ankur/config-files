@@ -35,6 +35,12 @@ sudo pip2 install keras neovim
 
 gem install neovim
 
+# Set up awesome
+sudo pacman -S awesome rlwrap dex vicious
+git clone --recursive https://github.com/lcpz/awesome-copycats.git
+mv -bv awesome-copycats/* ~/.config/awesome 
+rm -rf awesome-copycats
+
 # Setup Vim PLUG
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
