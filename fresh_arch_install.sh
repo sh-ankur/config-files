@@ -13,7 +13,7 @@ sudo systemctl enable sshd
 sudo systemctl start sshd
 
 # Start with basics
-sudo pacman -S gcc clang make automake autoconf ninja cmake git neovim ruby xsel lemonade cargo
+sudo pacman -S gcc clang make automake autoconf ninja cmake git neovim ruby xsel lemonade cargo termite
 
 # Setup NVIDIA drivers
 sudo pacman -S nvidia nvidia-utils cuda cudnn
