@@ -38,6 +38,7 @@ gem install neovim
 # Set up awesome
 sudo pacman -S awesome rlwrap dex vicious
 git clone --recursive https://github.com/lcpz/awesome-copycats.git
+mkdir -p ~/.config/awesome/
 mv -bv awesome-copycats/* ~/.config/awesome 
 rm -rf awesome-copycats
 
