@@ -169,8 +169,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # zplug "plugins/archlinux", from:oh-my-zsh
 # zplug "plugins/dnf", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/go", from:oh-my-zsh
-zplug "plugins/golang", from:oh-my-zsh
+# zplug "plugins/go", from:oh-my-zsh
+# zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 
@@ -338,34 +338,34 @@ intersect() {
 # Changes an iTerm profile by sending a proprietary escape code that iTerm
 # intercepts. This function additionally updates ITERM_PROFILE environment
 # variable.
-iterm-profile() {
-  echo -ne "\033]50;SetProfile=$1\a"
-  export ITERM_PROFILE="$1"
-}
+#iterm-profile() {
+#  echo -ne "\033]50;SetProfile=$1\a"
+#  export ITERM_PROFILE="$1"
+#}
 
 # =============================================================================
 #                                   Startup
 # =============================================================================
 
 # Load SSH and GPG agents via keychain.
-setup_agents() {
-  [[ $UID -eq 0 ]] && return
-
-  local -a ssh_keys gpg_keys
-  ssh_keys=(~/.ssh/**/*pub(.N:r))
-  gpg_keys=$(gpg -K --with-colons 2>/dev/null | awk -F : '$1 == "sec" { print $5 }')
-
-  if which keychain > /dev/null 2>&1; then
-    if (( $#ssh_keys > 0 )) || (( $#gpg_keys > 0 )); then
-	  #alias keychain='() { $(whence -p keychain) --quiet --eval --inherit any-once --agents ssh,gpg $ssh_keys ${(f)gpg_keys} }'
-	  alias run_agent='() { $(whence -p keychain) --quiet --eval --inherit any-once --agents ssh,gpg $ssh_keys ${(f)gpg_keys} }'
-	  #[[ -t ${fd:-0} || -p /dev/stdin ]] && eval "$keychain)"
-	  [[ -t ${fd:-0} || -p /dev/stdin ]] && eval $keychain
-    fi
-  fi
-}
-setup_agents
-unfunction setup_agents
+#setup_agents() {
+#  [[ $UID -eq 0 ]] && return
+#
+#  local -a ssh_keys gpg_keys
+#  ssh_keys=(~/.ssh/**/*pub(.N:r))
+#  gpg_keys=$(gpg -K --with-colons 2>/dev/null | awk -F : '$1 == "sec" { print $5 }')
+#
+#  if which keychain > /dev/null 2>&1; then
+#    if (( $#ssh_keys > 0 )) || (( $#gpg_keys > 0 )); then
+#	  #alias keychain='() { $(whence -p keychain) --quiet --eval --inherit any-once --agents ssh,gpg $ssh_keys ${(f)gpg_keys} }'
+#	  alias run_agent='() { $(whence -p keychain) --quiet --eval --inherit any-once --agents ssh,gpg $ssh_keys ${(f)gpg_keys} }'
+#	  #[[ -t ${fd:-0} || -p /dev/stdin ]] && eval "$keychain)"
+#	  [[ -t ${fd:-0} || -p /dev/stdin ]] && eval $keychain
+#    fi
+#  fi
+#}
+#setup_agents
+#unfunction setup_agents
 
 # Fixes for alt-backspace and arrows keys
 #bindkey '^[^?' backward-kill-word
@@ -390,4 +390,15 @@ mkcd () {
     cd $1
 }
 
+# Function to find and delete
+fndel () {
+    find $1 -name $2 -print0 | xargs -0 rm -rf
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/usr/local/anaconda3/bin:/usr/local/Cellar/llvm/5.0.0/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+alias nvim_config="n ~/.config/nvim/init.vim"

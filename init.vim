@@ -32,10 +32,10 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
+" Plug 'fatih/vim-go', { 'tag': '*' }
 
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -59,14 +59,14 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'nightsense/nemo'
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
-
+Plug 'Badacadabra/vim-archery'
 " Syntastic
 Plug 'vim-syntastic/syntastic'
 
 " Git
 Plug 'tpope/vim-fugitive'
 
-Plug 'wesQ3/vim-windowswap'
+" Plug 'wesQ3/vim-windowswap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
@@ -77,7 +77,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'bling/vim-airline'
+" Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
@@ -121,6 +121,9 @@ let base16colorspace=256
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
 
+" Show status bar for AsyncRun
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
 " deoplete tab-complete
 " inoremap <silent><expr> <Tab>
 "     \ pumvisible() ? "\<C-n>" : deoplete#manual_complete()
@@ -135,3 +138,9 @@ let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/l
 " Disable the scratch preview
 " let g:SuperTabClosePreviewOnPopupClose = 1
 set completeopt-=preview
+
+" Configure python path
+let g:syntastic_python_python_exec = '/usr/local/anaconda3/envs/deepl/bin/python3'
+let g:syntastic_python_pyflakes_exe = 'python3 -m pyflakes'
+let g:python_host_prog =  '/usr/local/anaconda3/envs/deepl/bin/python'
+let g:python3_host_prog =  '/usr/local/anaconda3/envs/deepl/bin/python3'
