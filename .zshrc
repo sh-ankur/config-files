@@ -397,7 +397,7 @@ fndel () {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="/usr/local/anaconda3/bin:/usr/local/Cellar/llvm/5.0.0/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
+export PATH="/anaconda3/bin/:/usr/local/Cellar/llvm/5.0.0/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

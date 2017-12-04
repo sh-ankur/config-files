@@ -137,10 +137,11 @@ let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/l
 
 " Disable the scratch preview
 " let g:SuperTabClosePreviewOnPopupClose = 1
-set completeopt-=preview
+" set completeopt-=preview
 
 " Configure python path
-let g:syntastic_python_python_exec = '/usr/local/anaconda3/envs/deepl/bin/python3'
-let g:syntastic_python_pyflakes_exe = 'python3 -m pyflakes'
-let g:python_host_prog =  '/usr/local/anaconda3/envs/deepl/bin/python'
-let g:python3_host_prog =  '/usr/local/anaconda3/envs/deepl/bin/python3'
+" Create anaconda environment and install flake8 and pylint
+let g:syntastic_python_python_exec = '/anaconda3/envs/deepl/bin/python'
+let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
+let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
+let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
