@@ -97,7 +97,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
-# export DEFAULT_USER=$USER
+export DEFAULT_USER=$USER
 
 # zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -128,14 +128,6 @@ powerlevel9k_random_color(){
 	for code ({000..255}) echo -n "$%F{$code}"
 }
 
-# zsh_wifi_signal(){
-# 	local signal=$(nmcli -t device wifi | grep '^*' | awk -F':' '{print $6}')
-#     local color="yellow"
-#     [[ $signal -gt 75 ]] && color="green"
-#     [[ $signal -lt 50 ]] && color="red"
-#     echo -n "%F{$color}\uf1eb" # \uf1eb is 
-# }
-
 # =============================================================================
 #                                   Plugins
 # =============================================================================
@@ -158,21 +150,7 @@ zplug "zsh-users/zsh-autosuggestions", at:develop
 zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-#if ! zplug check; then
-#  zplug install
-#fi
-#
-#zplug load
-
-# Supports oh-my-zsh plugins and the like
-# zplug "plugins/archlinux", from:oh-my-zsh
-# zplug "plugins/dnf", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-# zplug "plugins/go", from:oh-my-zsh
-# zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -203,12 +181,12 @@ fi
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
 
 # Watching other users
-WATCHFMT="%n %a %l from %m at %t."
-#watch=(notme)         # Report login/logout events for everybody except ourself.
-LOGCHECK=60           # Time (seconds) between checks for login/logout activity.
-REPORTTIME=5          # Display usage statistics for commands running > 5 sec.
-#WORDCHARS="\"*?_-.[]~=/&;!#$%^(){}<>\""
-WORDCHARS="\"*?_-[]~&;!#$%^(){}<>\""
+# WATCHFMT="%n %a %l from %m at %t."
+# watch=(notme)         # Report login/logout events for everybody except ourself.
+# LOGCHECK=60           # Time (seconds) between checks for login/logout activity.
+# REPORTTIME=5          # Display usage statistics for commands running > 5 sec.
+# WORDCHARS="\"*?_-.[]~=/&;!#$%^(){}<>\""
+# WORDCHARS="\"*?_-[]~&;!#$%^(){}<>\""
 
 # History
 HISTFILE=~/.zsh_history
@@ -219,14 +197,14 @@ setopt append_history           # Don;t overwrite history
 setopt extended_history         # Also record time and duration of commands.
 setopt share_history            # Share history between multiple shells
 setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
-setopt hist_find_no_dups        # Don"t display duplicates during searches.
+setopt hist_find_no_dups        # Dont display duplicates during searches.
 setopt hist_ignore_dups         # Ignore consecutive duplicates.
 setopt hist_ignore_all_dups     # Remember only one unique copy of the command.
 setopt hist_reduce_blanks       # Remove superfluous blanks.
 setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 
 # Changing directories
-setopt pushd_ignore_dups        # Don"t push copies of the same dir on stack.
+setopt pushd_ignore_dups        # Dont push copies of the same dir on stack.
 setopt pushd_minus              # Reference stack entries with "-".
 
 setopt extended_glob
@@ -251,21 +229,10 @@ alias la="ls -a"
 alias ll="ls -l"
 alias lal="ls -al"
 alias d="dirs -v"
-#alias 1="pu"
-#alias 2="pu -2"
-#alias 3="pu -3"
-#alias 4="pu -4"
-#alias 5="pu -5"
-#alias 6="pu -6"
-#alias 7="pu -7"
-#alias 8="pu -8"
-#alias 9="pu -9"
-#pu() { pushd $1 > /dev/null 2>&1; dirs -v; }
-#po() { popd > /dev/null 2>&1; dirs -v }
 
 # Generic command adaptations.
-#grep() { $(whence -p grep) --colour=auto $@ }
-#egrep() { $(whence -p egrep) --colour=auto $@ }
+grep() { $(whence -p grep) --colour=auto $@ }
+# egrep() { $(whence -p egrep) --colour=auto $@ }
 
 # =============================================================================
 #                                Key Bindings
@@ -285,18 +252,18 @@ bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^F" history-incremental-pattern-search-forward
 
 # History
-if zplug check "zsh-users/zsh-history-substring-search"; then
-  zmodload zsh/terminfo
-  bindkey "$terminfo[kcuu1]" history-substring-search-up
-  bindkey "$terminfo[kcud1]" history-substring-search-down
-  bindkey -M emacs "^P" history-substring-search-up
-  bindkey -M emacs "^N" history-substring-search-down
-  bindkey -M vicmd "k" history-substring-search-up
-  bindkey -M vicmd "j" history-substring-search-down
-fi
+# if zplug check "zsh-users/zsh-history-substring-search"; then
+#   zmodload zsh/terminfo
+#   bindkey "$terminfo[kcuu1]" history-substring-search-up
+#   bindkey "$terminfo[kcud1]" history-substring-search-down
+#   bindkey -M emacs "^P" history-substring-search-up
+#   bindkey -M emacs "^N" history-substring-search-down
+#   bindkey -M vicmd "k" history-substring-search-up
+#   bindkey -M vicmd "j" history-substring-search-down
+# fi
 
 # Do not require a space when attempting to tab-complete.
-bindkey "^i" expand-or-complete-prefix
+# bindkey "^i" expand-or-complete-prefix
 
 # =============================================================================
 #                                 Completions
@@ -326,14 +293,14 @@ globalias() {
 zle -N globalias
 
 # Utility that prints out lines that are common among $# files.
-intersect() {
-  local sort="sort -S 1G"
-  case $# in
-    (0) true;;
-    (2) $sort -u "$1"; $sort -u "$2";;
-    (*) $sort -u "$1"; shift; intersection "$@";;
-  esac | $sort | uniq -d
-}
+# intersect() {
+#   local sort="sort -S 1G"
+#   case $# in
+#     (0) true;;
+#     (2) $sort -u "$1"; $sort -u "$2";;
+#     (*) $sort -u "$1"; shift; intersection "$@";;
+#   esac | $sort | uniq -d
+# }
 
 # Changes an iTerm profile by sending a proprietary escape code that iTerm
 # intercepts. This function additionally updates ITERM_PROFILE environment

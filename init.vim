@@ -60,6 +60,7 @@ Plug 'nightsense/nemo'
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'Badacadabra/vim-archery'
+
 " Syntastic
 Plug 'vim-syntastic/syntastic'
 
@@ -77,6 +78,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'nathanaelkane/vim-indent-guides'
+
 " Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
@@ -87,6 +90,9 @@ Plug 'vim-airline/vim-airline'
 
 " CSV Plug
 Plug 'chrisbra/csv.vim'
+
+" Cursorline
+Plug 'miyakogi/conoline.vim'
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -103,6 +109,8 @@ set ruler
 
 " syntax highlighting
 syntax on
+
+color archery
 
 " Set VIM parameters
 set tabstop=4
@@ -121,6 +129,9 @@ let base16colorspace=256
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
 
+" Use indent guide by default
+let g:indent_guides_enable_on_vim_startup = 1
+
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
@@ -129,7 +140,7 @@ let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status
 "     \ pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 
 set background=light
-colorscheme cobalt2 
+colorscheme archery 
 
 " deoplete settings
 let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/'
@@ -137,7 +148,7 @@ let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/l
 
 " Disable the scratch preview
 " let g:SuperTabClosePreviewOnPopupClose = 1
-" set completeopt-=preview
+set completeopt-=preview
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
@@ -145,3 +156,6 @@ let g:syntastic_python_python_exec = '/anaconda3/envs/deepl/bin/python'
 let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
 let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
 let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
+
+" Toggle quickfix window by F1
+:noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
