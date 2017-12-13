@@ -141,22 +141,32 @@ let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status
 set background=light
 colorscheme archery
 
-" deoplete settings
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/'
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
+" deoplete-clang settings
+if has('macunix')
+    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/'
+    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
+else
+    let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so.5.0'
+endif
 
 " Disable the scratch preview
-" let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabClosePreviewOnPopupClose = 1
 set completeopt-=preview
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
-let g:syntastic_python_python_exec = '/anaconda3/envs/deepl/bin/python'
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
-let g:syntastic_python_pylint_post_args = "--max-line-length=120"
-let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
-let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
+if has('macunix')
+    let g:syntastic_python_python_exec = '/anaconda3/envs/deepl/bin/python'
+    let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
+    let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
+    let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
+else
+    let g:syntastic_python_python_exec = '/usr/bin/python'
+    let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
+    let g:python_host_prog =  '/usr/bin/python2'
+    let g:python3_host_prog =  '/usr/bin/python'
+endif
 
 " Toggle quickfix window by F1
-:noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
+noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
