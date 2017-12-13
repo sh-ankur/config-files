@@ -66,6 +66,9 @@ Plug 'vim-syntastic/syntastic'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" Tagbar
+Plug 'majutsushi/tagbar'
+
 " Plug 'wesQ3/vim-windowswap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
@@ -154,6 +157,9 @@ endif
 let g:SuperTabClosePreviewOnPopupClose = 1
 set completeopt-=preview
 
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠ "
+
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
 if has('macunix')
@@ -161,6 +167,10 @@ if has('macunix')
     let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
     let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
     let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
+    let g:syntastic_c_checkers=['cppcheck', 'clang_check']
+    let g:syntastic_cpp_checkers=['cppcheck', 'clang_check']
+    let g:syntastic_h_checkers=['cppcheck', 'clang_check']
+    let g:syntastic_hpp_checkers=['cppcheck', 'clang_check']
 else
     let g:syntastic_python_python_exec = '/usr/bin/python'
     let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
@@ -170,3 +180,4 @@ endif
 
 " Toggle quickfix window by F1
 noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
+noremap <F8> :TagbarToggle<cr>
