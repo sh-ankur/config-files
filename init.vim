@@ -159,6 +159,7 @@ set completeopt-=preview
 
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠ "
+let g:syntastic_check_on_open = 1
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
@@ -167,6 +168,7 @@ if has('macunix')
     let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
     let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
     let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
+    let g:syntastic_python_checkers=['flake8']
     let g:syntastic_c_checkers=['cppcheck', 'clang_check']
     let g:syntastic_cpp_checkers=['cppcheck', 'clang_check']
     let g:syntastic_h_checkers=['cppcheck', 'clang_check']
