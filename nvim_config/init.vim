@@ -31,12 +31,6 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -52,13 +46,11 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" SpaceGray theme
-Plug 'ajh17/Spacegray.vim'
-
 " Themes for vim
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'Badacadabra/vim-archery'
-Plug 'whatyouhide/vim-gotham'
+Plug 'hzchirs/vim-material'
+Plug 'KeitaNakamura/neodark.vim'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
@@ -112,8 +104,6 @@ set ruler
 " syntax highlighting
 syntax on
 
-color cobalt2
-
 " Set VIM parameters
 set tabstop=4
 set shiftwidth=4
@@ -137,12 +127,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-" deoplete tab-complete
-" inoremap <silent><expr> <Tab>
-"     \ pumvisible() ? "\<C-n>" : deoplete#manual_complete()
-
-set background=light
-colorscheme archery
+colorscheme neodark
+let g:airline_theme='neodark'
 
 " deoplete-clang settings
 if has('macunix')
@@ -160,22 +146,21 @@ set completeopt-=preview
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠ "
 let g:syntastic_check_on_open = 1
+let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
+let g:syntastic_c_checkers=['cppcheck', 'clang_check']
+let g:syntastic_cpp_checkers=['cppcheck', 'clang_check']
+let g:syntastic_h_checkers=['cppcheck', 'clang_check']
+let g:syntastic_hpp_checkers=['cppcheck', 'clang_check']
+let g:syntastic_python_checkers=['flake8']
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
 if has('macunix')
     let g:syntastic_python_python_exec = '/anaconda3/envs/deepl/bin/python'
-    let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
     let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
     let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
-    let g:syntastic_python_checkers=['flake8']
-    let g:syntastic_c_checkers=['cppcheck', 'clang_check']
-    let g:syntastic_cpp_checkers=['cppcheck', 'clang_check']
-    let g:syntastic_h_checkers=['cppcheck', 'clang_check']
-    let g:syntastic_hpp_checkers=['cppcheck', 'clang_check']
 else
     let g:syntastic_python_python_exec = '/usr/bin/python'
-    let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
     let g:python_host_prog =  '/usr/bin/python2'
     let g:python3_host_prog =  '/usr/bin/python'
 endif
