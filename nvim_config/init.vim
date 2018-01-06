@@ -21,7 +21,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | 
+" Plug 'SirVer/ultisnips' |
 Plug 'honza/vim-snippets'
 
 " On-demand loading
@@ -98,7 +98,7 @@ map <C-n> :NERDTreeToggle<CR>
 call plug#end()
 
 " show line numbers
-set number 
+set number
 set ruler
 
 " syntax highlighting
@@ -132,11 +132,11 @@ let g:airline_theme='neodark'
 
 " deoplete-clang settings
 if has('macunix')
-    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/'
-    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.1/lib/clang/'
+    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
 else
-    let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so.5.0'
+    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.1/include'
+    let g:deoplete#sources#clang#libclang_path = '/Applications/Xcode.app/Contents/Frameworks/libclang.dylib'
 endif
 
 " Disable the scratch preview
@@ -168,3 +168,30 @@ endif
 " Toggle quickfix window by F1
 noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
 noremap <F8> :TagbarToggle<cr>
+
+" Autostart nerd tree when nvim starts
+autocmd vimenter * NERDTree
+
+" Start NerdTree if nvim starts without a file name
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close nvim if all buffers are deleted
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Automatically open tagbar
+autocmd VimEnter * nested TagbarOpen
+
+" Config NerdTree for git
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
