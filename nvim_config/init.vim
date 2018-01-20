@@ -136,7 +136,7 @@ if has('macunix')
     let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.1/include'
-    let g:deoplete#sources#clang#libclang_path = '/Applications/Xcode.app/Contents/Frameworks/libclang.dylib'
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so.5'
 endif
 
 " Disable the scratch preview
