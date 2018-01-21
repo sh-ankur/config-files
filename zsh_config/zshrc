@@ -282,11 +282,6 @@ intersect() {
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -f ~/.zshrc.alias ]] && source ~/.zshrc.alias
 
-# vim: ft=zsh
-
-export CC=gcc-7
-export CXX=g++-7
-
 alias n=nvim
 
 # make dir and cp
@@ -300,6 +295,11 @@ fndel () {
     find $1 -name $2 -print0 | xargs -0 rm -rf
 }
 
+# Function to find a given process
+pfind () {
+    ps aux | grep $1
+}
+
 # Linux Specific Settings
 if [[ `uname` == 'Linux' ]]
 then
@@ -310,6 +310,8 @@ fi
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
+    export CC=gcc-7
+    export CXX=g++-7
     alias ls="ls -Gh"
     export PATH="$PATH:/usr/local/bin"
     export PATH="/anaconda3/bin/:/usr/local/Cellar/llvm/5.0.1/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
