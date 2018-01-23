@@ -160,9 +160,9 @@ if has('macunix')
     let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
     let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
 else
-    let g:syntastic_python_python_exec = '/usr/bin/python'
+    let g:syntastic_python_python_exec = '/usr/bin/python3'
     let g:python_host_prog =  '/usr/bin/python2'
-    let g:python3_host_prog =  '/usr/bin/python'
+    let g:python3_host_prog =  '/usr/bin/python3'
 endif
 
 " Toggle quickfix window by F1
@@ -170,14 +170,14 @@ noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
 noremap <F8> :TagbarToggle<cr>
 
 " Autostart nerd tree when nvim starts
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 " Start NerdTree if nvim starts without a file name
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Close nvim if all buffers are deleted
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Automatically open tagbar
 " autocmd VimEnter * nested TagbarOpen
