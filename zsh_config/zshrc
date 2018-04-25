@@ -305,6 +305,9 @@ if [[ `uname` == 'Linux' ]]
 then
     export LINUX=1
     alias ls="ls --color=auto -h"
+    export GOPATH="/opt/gopath"
+    export JAVA_HOME="/home/ankur/.jdk10/"
+    export PATH="$PATH:$JAVA_HOME/bin:$GOPATH/bin"
 fi
 
 # MacOS Specific Settings
