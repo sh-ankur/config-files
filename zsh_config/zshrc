@@ -28,7 +28,7 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host os_icon root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time ssh status anaconda)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
@@ -227,20 +227,6 @@ bindkey "^k" kill-line
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^F" history-incremental-pattern-search-forward
 
-# History
-# if zplug check "zsh-users/zsh-history-substring-search"; then
-#   zmodload zsh/terminfo
-#   bindkey "$terminfo[kcuu1]" history-substring-search-up
-#   bindkey "$terminfo[kcud1]" history-substring-search-down
-#   bindkey -M emacs "^P" history-substring-search-up
-#   bindkey -M emacs "^N" history-substring-search-down
-#   bindkey -M vicmd "k" history-substring-search-up
-#   bindkey -M vicmd "j" history-substring-search-down
-# fi
-
-# Do not require a space when attempting to tab-complete.
-# bindkey "^i" expand-or-complete-prefix
-
 # =============================================================================
 #                                 Completions
 # =============================================================================
@@ -303,6 +289,12 @@ pfind () {
 # Linux Specific Settings
 if [[ `uname` == 'Linux' ]]
 then
+    if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+        eval `ssh-agent`
+        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+    fi
+    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+    ssh-add -l > /dev/null || ssh-add
     export LINUX=1
     alias ls="ls --color=auto -h"
     export GOPATH="/opt/gopath"
