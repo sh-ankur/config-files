@@ -16,7 +16,7 @@ POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0B4"
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B6"
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B3"
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -27,8 +27,8 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host os_icon root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host os_icon root_indicator dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs anaconda)
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
@@ -293,13 +293,15 @@ then
         eval `ssh-agent`
         ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
     fi
+    export CC=gcc
+    export CXX=g++
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
     ssh-add -l > /dev/null || ssh-add
     export LINUX=1
     alias ls="ls --color=auto -h"
     export GOPATH="/opt/gopath"
     export JAVA_HOME="/home/ankur/.jdk10/"
-    export PATH="$PATH:$JAVA_HOME/bin:$GOPATH/bin"
+    export PATH="$PATH:$JAVA_HOME/bin:$GOPATH/bin:/opt/anaconda/bin"
 fi
 
 # MacOS Specific Settings
