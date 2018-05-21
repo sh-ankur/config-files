@@ -61,7 +61,6 @@ Plug 'tpope/vim-fugitive'
 " Tagbar
 Plug 'majutsushi/tagbar'
 
-" Plug 'wesQ3/vim-windowswap'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
@@ -96,6 +95,24 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Initialize plugin system
 call plug#end()
+
+" filetype plugin for nerdcommenter
+filetype plugin on
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 
 " show line numbers
 set number
@@ -136,7 +153,7 @@ if has('macunix')
     let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so.5'
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 endif
 
 " Disable the scratch preview
