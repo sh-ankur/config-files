@@ -9,10 +9,7 @@ function! BuildMarkdownComposer(info)
     endif
 endfunction
 
-
 call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -47,10 +44,10 @@ else
 endif
 
 " Themes for vim
-Plug 'gertjanreynaert/cobalt2-vim-theme'
-Plug 'Badacadabra/vim-archery'
-Plug 'hzchirs/vim-material'
+" Plug 'gertjanreynaert/cobalt2-vim-theme'
+" Plug 'nightsense/stellarized'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'Badacadabra/vim-archery'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
@@ -115,14 +112,12 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" show line numbers
-set number
-set ruler
-
 " syntax highlighting
 syntax on
 
 " Set VIM parameters
+set number
+set ruler
 set tabstop=4
 set shiftwidth=4
 set smarttab
@@ -145,13 +140,14 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-colorscheme neodark
+colorscheme archery
+" colorscheme neodark
 let g:airline_theme='neodark'
 
 " deoplete-clang settings
 if has('macunix')
-    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.1/lib/clang/'
-    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.1/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/include/clang/'
+    let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
@@ -164,26 +160,26 @@ set completeopt-=preview
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠ "
 let g:syntastic_check_on_open = 1
-let g:syntastic_python_pyflakes_exe = 'python -m pyflakes'
-let g:syntastic_c_checkers=['cppcheck', 'clang_check']
-let g:syntastic_cpp_checkers=['cppcheck', 'clang_check']
-let g:syntastic_h_checkers=['cppcheck', 'clang_check']
-let g:syntastic_hpp_checkers=['cppcheck', 'clang_check']
+let g:syntastic_python_pyflakes_exe = 'python3 -m pyflakes'
+let g:syntastic_c_checkers=['gcc']
+let g:syntastic_cpp_checkers=['clang_tidy']
+let g:syntastic_h_checkers=['gcc']
+let g:syntastic_hpp_checkers=['clang_tidy']
 let g:syntastic_python_checkers=['flake8']
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
 if has('macunix')
-    let g:syntastic_python_python_exec = '/anaconda3/envs/deepl/bin/python'
-    let g:python_host_prog =  '/anaconda3/envs/nvim2/bin/python'
-    let g:python3_host_prog =  '/anaconda3/envs/deepl/bin/python'
+    let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+    let g:python_host_prog =  '/usr/local/bin/python2'
+    let g:python3_host_prog =  '/usr/local/bin/python3'
 else
     let g:syntastic_python_python_exec = '/usr/bin/python3'
     let g:python_host_prog =  '/usr/bin/python2'
     let g:python3_host_prog =  '/usr/bin/python3'
 endif
 
-" NerdCommenter 
+" NerdCommenter
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
