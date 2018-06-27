@@ -47,7 +47,10 @@ positions = {
   lower25Right25 = {x=0.75, y=0.75, w=0.25, h=0.25},
 
   middle25Left25 = {x=0.0, y=0.50, w=0.25, h=0.25},
-  middle25Right25 = {x=0.75, y=0.50, w=0.25, h=0.25}
+  middle25Right25 = {x=0.75, y=0.50, w=0.25, h=0.25},
+
+  middle37 = {x=0.25, y=0, w=0.37, h=1},
+  right38 = {x=0.62, y=0, w=0.38, h=1}
 }
 
 hs.application.enableSpotlightForNameSearches(true)
@@ -87,11 +90,10 @@ hs.hotkey.bind(hyper, "o", function()
         {telegram, nil, external,   positions.lower25Left25,     nil,    nil},
         {slack,    nil, external,   positions.middle25Left25,    nil,    nil},
         {email,    nil, external,   positions.upper50Left25,     nil,    nil},
-        {iterm,    nil, external,   positions.right75,           nil,    nil},
-        {browser,  nil, retina,     positions.maximized,         nil,    nil},
+        {iterm,    nil, external,   positions.middle37,           nil,    nil},
+        {browser,  nil, external,   positions.right38,         nil,    nil},
     }
     hs.layout.apply(officeLayout)
-    redrawBorder()
 end)
 
 hs.hotkey.bind(hyper, "h", function()
@@ -104,7 +106,6 @@ hs.hotkey.bind(hyper, "h", function()
         {browser,  nil, retina,     positions.left50,            nil,    nil},
     }
     hs.layout.apply(homeLayout)
-    redrawBorder()
 end)
 
 
@@ -113,7 +114,6 @@ end)
 hs.hotkey.bind(hyper, 'up', function()
     if hs.window.focusedWindow() then
         hs.window.focusedWindow():focusWindowNorth()
-        redrawBorder()
     else
         hs.alert.show("No active window")
     end
@@ -122,7 +122,6 @@ end)
 hs.hotkey.bind(hyper, 'down', function()
     if hs.window.focusedWindow() then
         hs.window.focusedWindow():focusWindowSouth()
-        redrawBorder()
     else
         hs.alert.show("No active window")
     end
@@ -131,7 +130,6 @@ end)
 hs.hotkey.bind(hyper, 'right', function()
     if hs.window.focusedWindow() then
         hs.window.focusedWindow():focusWindowEast()
-        redrawBorder()
     else
         hs.alert.show("No active window")
     end
@@ -140,7 +138,6 @@ end)
 hs.hotkey.bind(hyper, 'left', function()
     if hs.window.focusedWindow() then
         hs.window.focusedWindow():focusWindowWest()
-        redrawBorder()
     else
         hs.alert.show("No active window")
     end
@@ -149,17 +146,14 @@ end)
 -- focus specific apps
 -- hs.hotkey.bind(mash, '7', function()
 --     hs.application.launchOrFocus(browser)
---     redrawBorder()
 -- end)
 
 -- hs.hotkey.bind(mash, '8', function()
 --     hs.application.launchOrFocus("iTerm2")
---     redrawBorder()
 -- end)
 
 -- hs.hotkey.bind(mash, '9', function()
 --     hs.application.launchOrFocus(email)
---     redrawBorder()
 -- end)
 
 -- hyper h to show window hints
@@ -184,4 +178,4 @@ end
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
 
-redrawBorder()
+-- redrawBorder()
