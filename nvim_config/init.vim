@@ -45,9 +45,9 @@ endif
 
 " Themes for vim
 " Plug 'gertjanreynaert/cobalt2-vim-theme'
-" Plug 'nightsense/stellarized'
 Plug 'KeitaNakamura/neodark.vim'
-Plug 'Badacadabra/vim-archery'
+" Plug 'Badacadabra/vim-archery'
+Plug 'mhartington/oceanic-next'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
@@ -140,8 +140,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-colorscheme archery
-" colorscheme neodark
+set background=light
+colorscheme OceanicNext
 let g:airline_theme='neodark'
 
 " deoplete-clang settings
@@ -162,10 +162,11 @@ let g:syntastic_warning_symbol = "⚠ "
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_pyflakes_exe = 'python3 -m pyflakes'
 let g:syntastic_c_checkers=['gcc']
-let g:syntastic_cpp_checkers=['clang_tidy']
+let g:syntastic_cpp_checkers=['clang_check']
 let g:syntastic_h_checkers=['gcc']
-let g:syntastic_hpp_checkers=['clang_tidy']
+let g:syntastic_hpp_checkers=['clang_check']
 let g:syntastic_python_checkers=['flake8']
+let g:syntastic_clang_check_config_file = ".clang_complete"
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
