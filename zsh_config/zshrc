@@ -118,8 +118,8 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=yellow,bold"
 #                                   Functions
 # =============================================================================
 powerlevel9k_random_color(){
-	local code
-	for code ({000..255}) echo -n "$%F{$code}"
+    local code
+    for code ({000..255}) echo -n "$%F{$code}"
 }
 
 # =============================================================================
@@ -205,9 +205,9 @@ setopt extended_glob
 
 # Directory coloring
 if [[ $OSTYPE = (darwin|freebsd)* ]]; then
-	# Prefer GNU version, since it respects dircolors.
-	export CLICOLOR="YES" # Equivalent to passing -G to ls.
-	export LSCOLORS="exgxdHdHcxaHaHhBhDeaec"
+    # Prefer GNU version, since it respects dircolors.
+    export CLICOLOR="YES" # Equivalent to passing -G to ls.
+    export LSCOLORS="exgxdHdHcxaHaHhBhDeaec"
 fi
 
 
