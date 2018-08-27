@@ -27,8 +27,8 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host os_icon root_indicator dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs anaconda)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(dir vcs ssh)
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
@@ -308,10 +308,14 @@ if [[ `uname` == 'Darwin' ]]
 then
     export CC=gcc-7
     export CXX=g++-7
+    export GOPATH=/opt/gopath/
     alias ls="ls -Gh"
-    export PATH="$PATH:/usr/local/bin"
+    export PATH="$PATH:/usr/local/bin:/usr/local/opt/go/libexec/bin:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
     export PATH="/anaconda3/bin/:/usr/local/Cellar/llvm/5.0.1/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+    
+    export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
 fi
 
 # Directory management
