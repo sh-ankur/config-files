@@ -22,8 +22,8 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh user dir dir_writable)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs custom_vm_status)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vm_status os_icon ssh user dir dir_writable)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
@@ -78,7 +78,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 
 POWERLEVEL9K_CUSTOM_VM_STATUS_BACKGROUND="235"
-POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="cyan"
+POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="red"
 
 # zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -99,17 +99,6 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-2]="fg=green,bold"
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=magenta,bold"
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=yellow,bold"
 
-# Regular Colors
-Black='\033[0;30m'        # Black
-Red='\033[0;31m'          # Red
-Green='\033[0;32m'        # Green
-Yellow='\033[0;33m'       # Yellow
-Blue='\033[0;34m'         # Blue
-Purple='\033[0;35m'       # Purple
-Cyan='\033[0;36m'         # Cyan
-White='\033[0;37m'        # White
-
-
 # =============================================================================
 #                                   Functions
 # =============================================================================
@@ -120,10 +109,8 @@ powerlevel9k_random_color(){
 
 custom_vm_status() {
     N=`VBoxManage list runningvms | wc -l`
-    if [ $N -eq 0 ]; then
-        echo -n "\uf308"
-    else
-        echo -n "\uf308 $N"
+    if [ $N -ne 0 ]; then
+        echo "\uf308"
     fi
 }
 
