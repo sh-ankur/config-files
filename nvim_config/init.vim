@@ -11,79 +11,48 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' |
-Plug 'honza/vim-snippets'
-
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
 " Custom Plugins
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" Themes for vim
-" Plug 'gertjanreynaert/cobalt2-vim-theme'
-Plug 'KeitaNakamura/neodark.vim'
-" Plug 'Badacadabra/vim-archery'
-Plug 'mhartington/oceanic-next'
-
-" Syntastic
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '~/my-prototype-plugin'
 Plug 'vim-syntastic/syntastic'
-
-" Git
 Plug 'tpope/vim-fugitive'
-
-" Tagbar
 Plug 'majutsushi/tagbar'
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'gregsexton/gitv', {'on': ['Gitv']}
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMarkdownComposer'), 'for': 'markdown' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'nathanaelkane/vim-indent-guides'
-
-" Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'shankur90/vim-license'
-
-" Airline Plug
 Plug 'vim-airline/vim-airline'
-
-" CSV Plug
 Plug 'chrisbra/csv.vim'
-
-" Cursorline
 Plug 'miyakogi/conoline.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'yggdroot/indentline'
+Plug 'ntpeters/vim-better-whitespace'
+
+" Themes
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'mhartington/oceanic-next'
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -181,7 +150,6 @@ else
 endif
 
 " NerdCommenter
-
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -207,19 +175,6 @@ let g:licenses_copyright_holders_name = 'Ankur Sharma (ankur.sharma@bigdata.uni-
 " Toggle quickfix window by F1
 noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>
 noremap <F8> :TagbarToggle<cr>
-
-" Autostart nerd tree when nvim starts
-" autocmd vimenter * NERDTree
-
-" Start NerdTree if nvim starts without a file name
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Close nvim if all buffers are deleted
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Automatically open tagbar
-" autocmd VimEnter * nested TagbarOpen
 
 " Config NerdTree for git
 let g:NERDTreeIndicatorMapCustom = {
