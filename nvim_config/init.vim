@@ -51,8 +51,7 @@ Plug 'yggdroot/indentline'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Themes
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'mhartington/oceanic-next'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -109,9 +108,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-set background=light
-colorscheme OceanicNext
-let g:airline_theme='neodark'
+set background=dark
+color dracula
+" let g:airline_theme='neodark'
 
 " deoplete-clang settings
 if has('macunix')
