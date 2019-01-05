@@ -11,7 +11,6 @@ POWERLEVEL9K_CUSTOM_VM_STATUS="custom_vm_status"
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_left"
 POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0B4"
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
@@ -22,8 +21,8 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vm_status os_icon ssh user dir dir_writable)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vm_status os_icon user dir dir_writable)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs ssh)
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
@@ -72,7 +71,6 @@ POWERLEVEL9K_HOST_ICON_BACKGROUND="black"
 POWERLEVEL9K_SSH_ICON="\uF489"  # 
 POWERLEVEL9K_OS_ICON_BACKGROUND="235"
 POWERLEVEL9K_OS_ICON_FOREGROUND="cyan"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
@@ -301,7 +299,7 @@ if [[ `uname` == 'Darwin' ]]
 then
     export CC=gcc-7
     export CXX=g++-7
-    export GOPATH=/opt/gopath/
+    export GOPATH=/Users/ankur/Repositories/GO/
     alias ls="ls -Gh"
     export PATH="$PATH:/usr/local/bin:/usr/local/opt/go/libexec/bin:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
     export PATH="/anaconda3/bin/:/usr/local/Cellar/llvm/5.0.1/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
