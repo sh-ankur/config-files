@@ -86,6 +86,7 @@ syntax on
 " Set VIM parameters
 set number
 set ruler
+set conceallevel=0
 set tabstop=2
 set shiftwidth=2
 set smarttab
@@ -94,7 +95,6 @@ set showmatch
 set showtabline=1
 set laststatus=1
 set cursorline
-set textwidth=80
 set fo+=t
 " set laststatus=2
 set t_Co=256
@@ -135,7 +135,7 @@ let g:syntastic_cpp_checkers=['clang_check']
 let g:syntastic_h_checkers=['gcc']
 let g:syntastic_hpp_checkers=['clang_check']
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_clang_check_config_file = ".clang_complete"
+let g:syntastic_clang_check_config_file = ".clang_check"
 
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
