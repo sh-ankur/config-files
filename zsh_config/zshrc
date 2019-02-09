@@ -1,121 +1,74 @@
-# =============================================================================
-#                                   Variables
-# =============================================================================
-export TERM="xterm-256color"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/ankur/.zplug/repos/robbyrussell/oh-my-zsh"
 
-POWERLEVEL9K_CUSTOM_VM_STATUS="custom_vm_status"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME=spaceship
 
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0B4"
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B3"
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vm_status os_icon user dir dir_writable)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs ssh)
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="black"
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="yellow"
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="black"
-POWERLEVEL9K_DIR_HOME_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="black"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="cyan"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="black"
-POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="235"
-POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="red"
-POWERLEVEL9K_STATUS_OK_BACKGROUND="235"
-POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND="235"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
-POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %T}" #  15:29:33
-POWERLEVEL9K_TIME_FOREGROUND="cyan"
-POWERLEVEL9K_TIME_BACKGROUND="235"
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON=""
-POWERLEVEL9K_VCS_GIT_ICON=""
-POWERLEVEL9K_SSH_FOREGROUND="yellow"
-POWERLEVEL9K_SSH_BACKGROUND="235"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="235"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="magenta"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_ICON="\u231A"
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="235"
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="magenta"
-POWERLEVEL9K_USER_DEFAULT_BACKGROUND="235"
-POWERLEVEL9K_USER_DEFAULT_FOREGROUND="cyan"
-POWERLEVEL9K_USER_ROOT_BACKGROUND="235"
-POWERLEVEL9K_USER_ROOT_FOREGROUND="red"
-POWERLEVEL9K_USER_ICON="\uF415" # 
-POWERLEVEL9K_ROOT_ICON="\u26A1" # ⚡
-POWERLEVEL9K_HOST_LOCAL_BACKGROUND="235"
-POWERLEVEL9K_HOST_LOCAL_FOREGROUND="cyan"
-POWERLEVEL9K_HOST_REMOTE_BACKGROUND="235"
-POWERLEVEL9K_HOST_REMOTE_FOREGROUND="cyan"
-POWERLEVEL9K_HOST_ICON="\uF109" # 
-POWERLEVEL9K_HOST_ICON_FOREGROUND="red"
-POWERLEVEL9K_HOST_ICON_BACKGROUND="black"
-POWERLEVEL9K_SSH_ICON="\uF489"  # 
-POWERLEVEL9K_OS_ICON_BACKGROUND="235"
-POWERLEVEL9K_OS_ICON_FOREGROUND="cyan"
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+SPACESHIP_CHAR_SYMBOL="➜  "
 
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-POWERLEVEL9K_CUSTOM_VM_STATUS_BACKGROUND="235"
-POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="red"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# zsh-syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_PATTERNS+=("rm -rf *" "fg=white,bold,bg=red")
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[path]="fg=white"
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]="fg=grey"
-ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
-ZSH_HIGHLIGHT_STYLES[builtin]="fg=cyan"
-ZSH_HIGHLIGHT_STYLES[function]="fg=cyan"
-ZSH_HIGHLIGHT_STYLES[command]='fg=green'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
-ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
-ZSH_HIGHLIGHT_STYLES[commandseparator]="fg=yellow"
-ZSH_HIGHLIGHT_STYLES[redirection]="fg=magenta"
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]="fg=cyan,bold"
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]="fg=green,bold"
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=magenta,bold"
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=yellow,bold"
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# =============================================================================
-#                                   Functions
-# =============================================================================
-powerlevel9k_random_color(){
-    local code
-    for code ({000..255}) echo -n "$%F{$code}"
-}
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-custom_vm_status() {
-    N=`VBoxManage list runningvms | wc -l`
-    if [ $N -ne 0 ]; then
-        echo "\uf308"
-    fi
-}
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# =============================================================================
-#                                   Plugins
-# =============================================================================
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="dd/mm/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+
 # Check if zplug is installed
+
+source $ZSH/oh-my-zsh.sh
+
 if [[ ! -d ~/.zplug ]]; then
     git clone https://github.com/zplug/zplug ~/.zplug
     source ~/.zplug/init.zsh && zplug update --self
@@ -125,15 +78,10 @@ source ~/.zplug/init.zsh
 
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
-zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
-
-zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:next
-zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
-zplug "zsh-users/zsh-autosuggestions", at:develop
+zplug "arzzen/calc.plugin.zsh"
 zplug "zsh-users/zsh-completions", defer:2
+zplug "zsh-users/zsh-autosuggestions", at:develop
 zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/sudo", from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
@@ -147,19 +95,32 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-if zplug check "seebi/dircolors-solarized"; then
-  if which gdircolors > /dev/null 2>&1; then
-    alias dircolors="gdircolors"
-  fi
-  if which dircolors > /dev/null 2>&1; then
-    scheme="dircolors.256dark"
-    eval $(dircolors ~/.zplug/repos/seebi/dircolors-solarized/$scheme)
-  fi
+# User configuration
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
 fi
 
-# =============================================================================
-#                                   Options
-# =============================================================================
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+export CFLAGS="-O3 -march=native"
+export CXXFLAGS="-std=c++17 -O3 -march=native"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
 
 # improved less option
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
@@ -168,10 +129,10 @@ export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+
 setopt autocd                   # Allow changing directories without `cd`
 setopt append_history           # Don;t overwrite history
 setopt extended_history         # Also record time and duration of commands.
-setopt share_history            # Share history between multiple shells
 setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
 setopt hist_find_no_dups        # Dont display duplicates during searches.
 setopt hist_ignore_dups         # Ignore consecutive duplicates.
@@ -182,24 +143,7 @@ setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 # Changing directories
 setopt pushd_ignore_dups        # Dont push copies of the same dir on stack.
 setopt pushd_minus              # Reference stack entries with "-".
-
 setopt extended_glob
-
-# =============================================================================
-#                                   Aliases
-# =============================================================================
-
-# In the definitions below, you will see use of function definitions instead of
-# aliases for some cases. We use this method to avoid expansion of the alias in
-# combination with the globalias plugin.
-
-# Directory coloring
-if [[ $OSTYPE = (darwin|freebsd)* ]]; then
-    # Prefer GNU version, since it respects dircolors.
-    export CLICOLOR="YES" # Equivalent to passing -G to ls.
-    export LSCOLORS="exgxdHdHcxaHaHhBhDeaec"
-fi
-
 
 # Generic command adaptations.
 grep() { $(whence -p grep) --colour=auto $@ }
@@ -211,7 +155,7 @@ grep() { $(whence -p grep) --colour=auto $@ }
 # Common CTRL bindings.
 bindkey "^a" beginning-of-line
 bindkey "^e" end-of-line
-bindkey "^f" forward-word
+bindkey "^w" forward-word
 bindkey "^b" backward-word
 bindkey "^k" kill-line
 bindkey "^R" history-incremental-pattern-search-backward
@@ -258,7 +202,6 @@ intersect() {
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -f ~/.zshrc.alias ]] && source ~/.zshrc.alias
 
-alias n=nvim
 
 # make dir and cp
 mkcd () {
@@ -310,14 +253,19 @@ then
 fi
 
 # Directory management
+alias n=nvim
+
 alias la="ls -a"
 alias ll="ls -l"
 alias lal="ls -al"
 alias d="dirs -v"
 
+alias zshconfig="nvim ~/.zshrc"
+alias nvim_config="n ~/.config/nvim/init.vim"
+alias diff="colordiff -uNrw"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias nvim_config="n ~/.config/nvim/init.vim"
 
 # Vagrant related shortcuts
 vag() {
