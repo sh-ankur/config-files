@@ -1,22 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export TERM="xterm-256color"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ankur/.zplug/repos/robbyrussell/oh-my-zsh"
+if [[ `uname` == "Darwin" ]]; then
+  export ZSH="/Users/ankur/.zplug/repos/robbyrussell/oh-my-zsh"
+else
+  export ZSH="/home/ankur/.zplug/repos/robbyrussell/oh-my-zsh"
+fi
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=spaceship
-
-SPACESHIP_CHAR_SYMBOL="➜  "
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -76,6 +72,8 @@ fi
 
 source ~/.zplug/init.zsh
 
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+# zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
 zplug "arzzen/calc.plugin.zsh"
@@ -83,6 +81,74 @@ zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-autosuggestions", at:develop
 zplug "zsh-users/zsh-history-substring-search"
 zplug "plugins/sudo", from:oh-my-zsh
+
+# Theme settings
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0B4"
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B3"
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
+POWERLEVEL9K_STATUS_VERBOSE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vm_status os_icon user dir dir_writable)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="black"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="yellow"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="black"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="cyan"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="cyan"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="cyan"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="black"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="cyan"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="black"
+POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="235"
+POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="red"
+POWERLEVEL9K_STATUS_OK_BACKGROUND="235"
+POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND="235"
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
+POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %T}" #  15:29:33
+POWERLEVEL9K_TIME_FOREGROUND="cyan"
+POWERLEVEL9K_TIME_BACKGROUND="235"
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=""
+POWERLEVEL9K_VCS_GIT_ICON=""
+POWERLEVEL9K_SSH_FOREGROUND="yellow"
+POWERLEVEL9K_SSH_BACKGROUND="235"
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="235"
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="magenta"
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_ICON="\u231A"
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="235"
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="magenta"
+POWERLEVEL9K_USER_DEFAULT_BACKGROUND="235"
+POWERLEVEL9K_USER_DEFAULT_FOREGROUND="cyan"
+POWERLEVEL9K_USER_ROOT_BACKGROUND="235"
+POWERLEVEL9K_USER_ROOT_FOREGROUND="red"
+POWERLEVEL9K_USER_ICON="\uF415" # 
+POWERLEVEL9K_ROOT_ICON="\u26A1" # ⚡
+POWERLEVEL9K_HOST_LOCAL_BACKGROUND="235"
+POWERLEVEL9K_HOST_LOCAL_FOREGROUND="cyan"
+POWERLEVEL9K_HOST_REMOTE_BACKGROUND="235"
+POWERLEVEL9K_HOST_REMOTE_FOREGROUND="cyan"
+POWERLEVEL9K_HOST_ICON="\uF109" # 
+POWERLEVEL9K_HOST_ICON_FOREGROUND="red"
+POWERLEVEL9K_HOST_ICON_BACKGROUND="black"
+POWERLEVEL9K_SSH_ICON="\uF489"  # 
+POWERLEVEL9K_OS_ICON_BACKGROUND="235"
+POWERLEVEL9K_OS_ICON_FOREGROUND="cyan"
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_CUSTOM_VM_STATUS_BACKGROUND="235"
+POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="red"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -120,7 +186,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 
 # improved less option
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
@@ -144,9 +209,6 @@ setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 setopt pushd_ignore_dups        # Dont push copies of the same dir on stack.
 setopt pushd_minus              # Reference stack entries with "-".
 setopt extended_glob
-
-# Generic command adaptations.
-grep() { $(whence -p grep) --colour=auto $@ }
 
 # =============================================================================
 #                                Key Bindings
@@ -226,14 +288,17 @@ then
         eval `ssh-agent`
         ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
     fi
-    export GOPATH=/opt/gopath
-    export CC=gcc
-    export CXX=g++
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
     ssh-add -l > /dev/null || ssh-add
+
     export LINUX=1
-    alias ls="ls --color=auto -h"
+    export CC=gcc
+    export CXX=g++
+    export GOPATH=/opt/gopath
     export JAVA_HOME="/home/ankur/.jdk10/"
+
+    alias ls="ls --color=auto -h"
+
     export PATH="$PATH:$JAVA_HOME/bin:/home/ankur/.gem/ruby/2.5.0/bin:/opt/gopath/bin"
 fi
 
@@ -243,13 +308,17 @@ then
     export CC=gcc-7
     export CXX=g++-7
     export GOPATH=/Users/ankur/Repositories/GO/
+
     alias ls="ls -Gh"
+
     export PATH="$PATH:/usr/local/bin:/usr/local/opt/go/libexec/bin:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
     export PATH="/anaconda3/bin/:/usr/local/Cellar/llvm/5.0.1/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
+
+
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
     export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+    . "/usr/local/opt/nvm/nvm.sh"
 fi
 
 # Directory management
@@ -263,6 +332,7 @@ alias d="dirs -v"
 alias zshconfig="nvim ~/.zshrc"
 alias nvim_config="n ~/.config/nvim/init.vim"
 alias diff="colordiff -uNrw"
+alias grep="$(whence -p grep) --colour=auto $@"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

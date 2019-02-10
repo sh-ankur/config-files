@@ -51,7 +51,11 @@ Plug 'yggdroot/indentline'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Themes
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'yuttie/hydrangea-vim'
+" Plug 'agreco/vim-citylights'
+" Plug 'koirand/tokyo-metro.vim'
+
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -96,7 +100,7 @@ set showtabline=1
 set laststatus=1
 set cursorline
 set fo+=t
-" set laststatus=2
+set laststatus=2
 set t_Co=256
 
 let base16colorspace=256
@@ -110,8 +114,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 set background=dark
-color dracula
-" let g:airline_theme='neodark'
+color hydrangea
+
+let g:airline_theme = 'hydrangea'
 
 " deoplete-clang settings
 if has('macunix')
