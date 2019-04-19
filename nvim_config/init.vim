@@ -40,7 +40,7 @@ Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'shankur90/vim-license'
 Plug 'vim-airline/vim-airline'
 Plug 'chrisbra/csv.vim'
@@ -51,8 +51,8 @@ Plug 'yggdroot/indentline'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Themes
-" Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'yuttie/hydrangea-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'yuttie/hydrangea-vim'
 " Plug 'agreco/vim-citylights'
 " Plug 'koirand/tokyo-metro.vim'
 
@@ -68,21 +68,6 @@ call plug#end()
 
 " filetype plugin for nerdcommenter
 filetype plugin on
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
 
 " syntax highlighting
 syntax on
@@ -114,9 +99,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 set background=dark
-color hydrangea
+color dracula
 
-let g:airline_theme = 'hydrangea'
+let g:airline_theme = 'dracula'
 
 " deoplete-clang settings
 if has('macunix')
@@ -155,26 +140,32 @@ else
 endif
 
 " NerdCommenter
-" Add spaces after comment delimiters by default
+"" Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
 " Vim License
 let g:licenses_authors_name = 'Ankur Sharma'
+let g:licenses_organizations_name = 'ChainifyDB GmbH'
 let g:licenses_copyright_holders_name = 'Ankur Sharma (ankur.sharma@bigdata.uni-saarland.de)'
 
 " Toggle quickfix window by F1

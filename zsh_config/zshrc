@@ -74,12 +74,12 @@ source ~/.zplug/init.zsh
 
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 # zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-zplug "plugins/colored-man-pages", from:oh-my-zsh
+# zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
 zplug "arzzen/calc.plugin.zsh"
 zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-autosuggestions", at:develop
-zplug "zsh-users/zsh-history-substring-search"
+# zplug "zsh-users/zsh-history-substring-search"
 zplug "plugins/sudo", from:oh-my-zsh
 
 # Theme settings
@@ -261,8 +261,8 @@ intersect() {
 }
 
 # Source local customizations.
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-[[ -f ~/.zshrc.alias ]] && source ~/.zshrc.alias
+# [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+# [[ -f ~/.zshrc.alias ]] && source ~/.zshrc.alias
 
 
 # make dir and cp
@@ -310,15 +310,16 @@ then
     export GOPATH=/Users/ankur/Repositories/GO/
 
     alias ls="ls -Gh"
-
+    export NVM_DIR=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
     export PATH="$PATH:/usr/local/bin:/usr/local/opt/go/libexec/bin:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
     export PATH="/anaconda3/bin/:/usr/local/Cellar/llvm/5.0.1/bin/:/usr/local/Cellar/gcc/7.2.0/bin/:$PATH"
 
 
-    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+    # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-    export NVM_DIR="$HOME/.nvm"
-    . "/usr/local/opt/nvm/nvm.sh"
+    # export NVM_DIR="$HOME/.nvm"
+    # . "/usr/local/opt/nvm/nvm.sh"
 fi
 
 # Directory management
@@ -341,3 +342,6 @@ alias grep="$(whence -p grep) --colour=auto $@"
 vag() {
     vagrant global-status --prune
 }
+
+export PATH=$PATH:/Users/ankur/Repositories/startup/arcanist/bin:/Users/ankur/Repositories/startup/libphutil/bin/
+export HOMEBREW_GITHUB_API_TOKEN=b7229967caee7847b8bfc10d80b96bfbdf31a04e
