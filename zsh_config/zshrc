@@ -1,4 +1,6 @@
-# If you come from bash you might have to change your $PATH.
+# zmodload zsh/zprof
+
+#If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export TERM="xterm-256color"
@@ -73,14 +75,9 @@ fi
 source ~/.zplug/init.zsh
 
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-# zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-# zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
-zplug "arzzen/calc.plugin.zsh"
-zplug "zsh-users/zsh-completions", defer:2
+# zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-autosuggestions", at:develop
-# zplug "zsh-users/zsh-history-substring-search"
-zplug "plugins/sudo", from:oh-my-zsh
 
 # Theme settings
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -160,6 +157,23 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+# Speeds up load time
+DISABLE_UPDATE_PROMPT=true
+
+# Perform compinit only once a day.
+autoload -Uz compinit
+
+setopt EXTENDEDGLOB
+for dump in $ZSH_COMPDUMP(#qN.m1); do
+  compinit
+  if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    zcompile "$dump"
+  fi
+  echo "Initializing Completions..."
+done
+unsetopt EXTENDEDGLOB
+compinit -C
 
 # User configuration
 
@@ -310,8 +324,8 @@ then
   export GOPATH=/Users/ankur/Repositories/GO/
 
   alias ls="ls -Gh"
-  export NVM_DIR=~/.nvm
-  source $(brew --prefix nvm)/nvm.sh
+  # export NVM_DIR=~/.nvm
+  # source $(brew --prefix nvm)/nvm.sh
 
   export PATH="$PATH:/usr/local/bin"
   export PATH="$PATH:/anaconda3/bin"
@@ -329,6 +343,7 @@ fi
 
 # Directory management
 alias n=nvim
+alias t=tmux
 
 alias la="ls -a"
 alias ll="ls -l"
@@ -341,3 +356,4 @@ alias nvim_config="n ~/.config/nvim/init.vim"
 alias grep="$(whence -p grep) --colour=auto $@"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# zprof
