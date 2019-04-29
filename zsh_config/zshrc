@@ -308,14 +308,12 @@ then
     export LINUX=1
     export CC=gcc
     export CXX=g++
-    export GOPATH=/opt/gopath
-    export JAVA_HOME="/home/ankur/.jdk10/"
 
     alias ls="ls --color=auto -h"
 
-    export PATH="$PATH:$JAVA_HOME/bin"
-    export PATH="$PATH:/opt/gopath/bin"
     export PATH="$PATH:/home/ankur/.gem/ruby/2.5.0/bin"
+    export PATH="$PATH:/home/ankur/Repositories/startup/arcanist/bin"
+    export PATH="$PATH:/home/ankur/Repositories/startup/libphutil/bin"
 fi
 
 # MacOS Specific Settings
@@ -330,6 +328,8 @@ then
   export PATH="$PATH:/usr/local/bin"
   export PATH="$PATH:/opt/local/bin"
   export PATH="$PATH:/usr/local/anaconda3/bin"
+  export PATH="$PATH:/usr/local/opt/icu4c/bin"
+  export PATH="$PATH:/usr/local/opt/icu4c/sbin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/arcanist/bin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/libphutil/bin"
   export PATH="$PATH:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
@@ -338,6 +338,7 @@ fi
 # Directory management
 alias n=nvim
 alias t=tmux
+alias v=vagrant
 
 alias la="ls -a"
 alias ll="ls -l"
@@ -351,5 +352,3 @@ alias grep="$(whence -p grep) --colour=auto $@"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zprof
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
