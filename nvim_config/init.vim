@@ -105,8 +105,8 @@ let g:airline_theme = 'dracula'
 
 " deoplete-clang settings
 if has('macunix')
-    let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/include/clang/'
-    let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+  let g:deoplete#sources#clang#clang_header = '/opt/local/libexec/llvm-8.0/include'
+  let g:deoplete#sources#clang#libclang_path = '/opt/local/libexec/llvm-8.0/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
@@ -130,9 +130,9 @@ let g:syntastic_clang_check_config_file = ".clang_check"
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
 if has('macunix')
-    let g:syntastic_python_python_exec = '/anaconda3/bin/python3'
-    let g:python_host_prog =  '/usr/local/bin/python2'
-    let g:python3_host_prog =  '/anaconda3/bin/python3'
+    let g:syntastic_python_python_exec = '/usr/local/anaconda3/bin/python3'
+    let g:python_host_prog =  '/opt/local/bin/python2.7'
+    let g:python3_host_prog =  '/usr/local/anaconda3/bin/python3'
 else
     let g:syntastic_python_python_exec = '/usr/bin/python3'
     let g:python_host_prog =  '/usr/bin/python2'

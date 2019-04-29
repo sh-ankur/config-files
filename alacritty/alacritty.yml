@@ -73,7 +73,7 @@ scrolling:
   faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: true
+  auto_scroll: false
 
 # Spaces per Tab (changes require restart)
 #
@@ -344,7 +344,7 @@ cursor:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  unfocused_hollow: false
+  unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true

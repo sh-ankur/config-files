@@ -3,7 +3,7 @@
 #If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -328,17 +328,11 @@ then
   # source $(brew --prefix nvm)/nvm.sh
 
   export PATH="$PATH:/usr/local/bin"
-  export PATH="$PATH:/anaconda3/bin"
-  export PATH="$PATH:/usr/local/opt/sqlite/bin"
-  export PATH="$PATH:/usr/local/opt/icu4c/bin"
-  export PATH="$PATH:/usr/local/opt/icu4c/sbin"
-  export PATH="$PATH:/usr/local/opt/go/libexec/bin"
-  export PATH="$PATH:/usr/local/Cellar/llvm/8.0.0/bin"
-  export PATH="$PATH:/usr/local/Cellar/gcc/8.3.0_1/bin"
+  export PATH="$PATH:/opt/local/bin"
+  export PATH="$PATH:/usr/local/anaconda3/bin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/arcanist/bin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/libphutil/bin"
   export PATH="$PATH:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
-  export HOMEBREW_GITHUB_API_TOKEN=b7229967caee7847b8bfc10d80b96bfbdf31a04e
 fi
 
 # Directory management
@@ -357,3 +351,5 @@ alias grep="$(whence -p grep) --colour=auto $@"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zprof
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
