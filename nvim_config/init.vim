@@ -40,7 +40,7 @@ Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'shankur90/vim-license'
 Plug 'vim-airline/vim-airline'
 Plug 'chrisbra/csv.vim'
@@ -105,8 +105,8 @@ let g:airline_theme = 'dracula'
 
 " deoplete-clang settings
 if has('macunix')
-  let g:deoplete#sources#clang#clang_header = '/opt/local/libexec/llvm-8.0/include'
-  let g:deoplete#sources#clang#libclang_path = '/opt/local/libexec/llvm-8.0/lib/libclang.dylib'
+  let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/8.0.0/include'
+  let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/8.0.0/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
@@ -131,7 +131,7 @@ let g:syntastic_clang_check_config_file = ".clang_check"
 " Create anaconda environment and install flake8 and pylint
 if has('macunix')
     let g:syntastic_python_python_exec = '/usr/local/anaconda3/bin/python3'
-    let g:python_host_prog =  '/opt/local/bin/python2.7'
+    let g:python_host_prog =  '/usr/local/bin/python2'
     let g:python3_host_prog =  '/usr/local/anaconda3/bin/python3'
 else
     let g:syntastic_python_python_exec = '/usr/bin/python3'

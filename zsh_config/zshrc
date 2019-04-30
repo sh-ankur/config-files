@@ -290,6 +290,10 @@ fi
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
+  alias gcc=gcc-8
+  alias g++=g++-8
+  export CC=/usr/local/bin/gcc-8
+  export CXX=/usr/local/bin/g++-8
   export GOPATH=/Users/ankur/Repositories/GO/
 
   alias ls="ls -Gh"
@@ -303,7 +307,6 @@ then
   export PATH="$PATH:/usr/local/opt/icu4c/sbin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/arcanist/bin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/libphutil/bin"
-  export PATH="$PATH:/opt/gopath/bin:/opt/gopath/src/github.com/hyperledger/fabric/.build/bin"
 fi
 
 # Directory management
