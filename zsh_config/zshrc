@@ -115,6 +115,7 @@ POWERLEVEL9K_OS_ICON_BACKGROUND="235"
 POWERLEVEL9K_OS_ICON_FOREGROUND="cyan"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_CUSTOM_VM_STATUS="custom_vm_status"
 POWERLEVEL9K_CUSTOM_VM_STATUS_BACKGROUND="235"
 POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="red"
 DEFAULT_USER=ankur
@@ -235,6 +236,13 @@ globalias() {
 }
 zle -N globalias
 
+custom_vm_status() {
+  N=`VBoxManage list runningvms | wc -l`
+  if [ $N -ne 0 ]; then
+    echo "\uf308"
+  fi
+}
+
 # Utility that prints out lines that are common among $# files.
 intersect() {
     local sort="sort -S 1G"
@@ -290,10 +298,6 @@ fi
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
-  alias gcc=gcc-8
-  alias g++=g++-8
-  export CC=/usr/local/bin/gcc-8
-  export CXX=/usr/local/bin/g++-8
   export GOPATH=/Users/ankur/Repositories/GO/
 
   alias ls="ls -Gh"

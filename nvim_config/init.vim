@@ -37,7 +37,6 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
@@ -49,6 +48,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nvie/vim-flake8'
+
 
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -92,8 +93,8 @@ let base16colorspace=256
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
 
-" Use indent guide by default
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦']
 
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
