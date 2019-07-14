@@ -52,11 +52,7 @@ Plug 'nvie/vim-flake8'
 
 
 " Themes
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'yuttie/hydrangea-vim'
-" Plug 'agreco/vim-citylights'
-" Plug 'koirand/tokyo-metro.vim'
-
+Plug 'flrnprz/candid.vim'
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -99,10 +95,11 @@ let g:indentLine_char_list = ['|', '¦']
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
+set termguicolors
 set background=dark
-color dracula
+colorscheme candid
 
-let g:airline_theme = 'dracula'
+let g:airline_theme = 'candid'
 
 " deoplete-clang settings
 if has('macunix')

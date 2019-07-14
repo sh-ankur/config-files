@@ -288,9 +288,12 @@ then
     export CC=gcc
     export CXX=g++
 
+    export GOPATH=/home/ankur/Repositories/go
+
     alias ls="ls --color=auto -h"
 
-    export PATH="$PATH:/home/ankur/.gem/ruby/2.5.0/bin"
+    export PATH="$PATH:$GOPATH/bin"
+    export PATH="$PATH:/home/ankur/.gem/ruby/2.6.0/bin"
     export PATH="$PATH:/home/ankur/Repositories/startup/arcanist/bin"
     export PATH="$PATH:/home/ankur/Repositories/startup/libphutil/bin"
 fi
@@ -330,3 +333,33 @@ alias grep="$(whence -p grep) --colour=auto $@"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zprof
+#
+
+# HELP="
+# USAGE:
+#   hagrant up|down|status
+# "
+#
+# hag_status() {
+#   vm_list=$(vagrant global-status --prune | grep "^[0-9]+*")
+#   for vm in $vm_list; do
+#     echo $vm | cut -d" " -f1,5,6
+#   done
+# }
+#
+# hagrant() {
+#   case $1 in
+#     status)
+#       hag_status
+#       ;;
+#     down)
+#       hag_status
+#       ;;
+#     up)
+#       hag_status
+#       ;;
+#     *)
+#       echo $HELP
+#       ;;
+#   esac
+# }
