@@ -99,7 +99,7 @@ set termguicolors
 set background=dark
 colorscheme candid
 
-let g:airline_theme = 'candid'
+" let g:airline_theme = 'candid'
 
 " deoplete-clang settings
 if has('macunix')

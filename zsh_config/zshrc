@@ -53,8 +53,8 @@ source ~/.zplug/init.zsh
 
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
-zplug "zsh-users/zsh-completions", defer:2
-zplug "zsh-users/zsh-autosuggestions", at:develop
+# zplug "zsh-users/zsh-completions", defer:2
+# zplug "zsh-users/zsh-autosuggestions", at:develop
 
 # Theme settings
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -134,18 +134,18 @@ zplug load
 DISABLE_UPDATE_PROMPT=true
 
 # Perform compinit only once a day.
-autoload -Uz compinit
+# autoload -Uz compinit
 
-setopt EXTENDEDGLOB
-for dump in $ZSH_COMPDUMP(#qN.m1); do
-  compinit
-  if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
-    zcompile "$dump"
-  fi
-  echo "Initializing Completions..."
-done
-unsetopt EXTENDEDGLOB
-compinit -C
+# setopt EXTENDEDGLOB
+# for dump in $ZSH_COMPDUMP(#qN.m1); do
+#   compinit
+#   if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+#     zcompile "$dump"
+#   fi
+#   echo "Initializing Completions..."
+# done
+# unsetopt EXTENDEDGLOB
+# compinit -C
 
 # User configuration
 
