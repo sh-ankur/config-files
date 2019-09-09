@@ -46,10 +46,9 @@ Plug 'chrisbra/csv.vim'
 Plug 'miyakogi/conoline.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'yggdroot/indentline'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvie/vim-flake8'
-
+Plug 'Yggdroot/indentLine'
 
 " Themes
 Plug 'flrnprz/candid.vim'
@@ -99,7 +98,7 @@ set termguicolors
 set background=dark
 colorscheme candid
 
-let g:airline_theme = 'candid'
+" let g:airline_theme = 'candid'
 
 " deoplete-clang settings
 if has('macunix')
