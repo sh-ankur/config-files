@@ -13,6 +13,8 @@
   compactionHeuristic = true
 [pager]
   color = true
+[merge]
+  tool = meld
 [status]
   color = true
 [alias]
@@ -32,3 +34,5 @@
   default = tracking
 [rere]
   enabled = true
+[http]
+  sslVerify = true
