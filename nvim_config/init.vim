@@ -83,6 +83,7 @@ set cursorline
 set fo+=t
 set laststatus=2
 set t_Co=256
+set foldmethod=indent
 
 let base16colorspace=256
 let g:spacegray_underline_search = 1
