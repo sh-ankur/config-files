@@ -71,7 +71,7 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
 POWERLEVEL9K_STATUS_VERBOSE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir dir_writable)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
@@ -117,9 +117,9 @@ POWERLEVEL9K_OS_ICON_BACKGROUND="235"
 POWERLEVEL9K_OS_ICON_FOREGROUND="cyan"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_CUSTOM_VM_STATUS="custom_vm_status"
-POWERLEVEL9K_CUSTOM_VM_STATUS_BACKGROUND="235"
-POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="red"
+# POWERLEVEL9K_CUSTOM_VM_STATUS="custom_vm_status"
+# POWERLEVEL9K_CUSTOM_VM_STATUS_BACKGROUND="235"
+# POWERLEVEL9K_CUSTOM_VM_STATUS_FOREGROUND="red"
 DEFAULT_USER=ankur
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -148,6 +148,8 @@ for dump in $ZSH_COMPDUMP(#qN.m1); do
 done
 unsetopt EXTENDEDGLOB
 compinit -C
+
+# User configuration
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -301,12 +303,13 @@ fi
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
-  export GOPATH=/Users/ankur/Repositories/GO/
+  export GOPATH=/Users/ankur/Repositories/go/
 
   alias ls="ls -Gh"
   # export NVM_DIR=~/.nvm
   # source $(brew --prefix nvm)/nvm.sh
 
+  export PATH="$PATH:$GOPATH/bin"
   export PATH="$PATH:/usr/local/bin"
   export PATH="$PATH:/opt/local/bin"
   export PATH="$PATH:/usr/local/anaconda3/bin"
@@ -333,3 +336,4 @@ alias grep="$(whence -p grep) --colour=auto $@"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zprof
+#
