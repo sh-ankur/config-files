@@ -128,9 +128,9 @@ let g:syntastic_clang_check_config_file = ".clang_check"
 " Configure python path
 " Create anaconda environment and install flake8 and pylint
 if has('macunix')
-    let g:syntastic_python_python_exec = '/usr/local/anaconda3/bin/python3'
+    let g:syntastic_python_python_exec = '/usr/local/bin/python3'
     let g:python_host_prog =  '/usr/local/bin/python2'
-    let g:python3_host_prog =  '/usr/local/anaconda3/bin/python3'
+    let g:python3_host_prog =  '/usr/local/bin/python3'
 else
     let g:syntastic_python_python_exec = '/usr/bin/python3'
     let g:python_host_prog =  '/usr/bin/python2'

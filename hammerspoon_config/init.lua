@@ -9,7 +9,7 @@ mash = {
   position = {"ctrl", "alt", "cmd"},
 }
 
-require('position')
+-- require('position')
 
 function getPosition(xpadding, ypadding, width, height)
   return {x=xpadding, y=ypadding, w=width, h=height}
@@ -37,19 +37,15 @@ bindKeyPosition('o', function()
   hs.application.launchOrFocus("iTerm")
   hs.application.launchOrFocus("Safari")
   hs.application.launchOrFocus("Mail")
-  hs.application.launchOrFocus("Spotify")
   hs.application.launchOrFocus("Firefox")
-  hs.application.launchOrFocus("Slack")
-  hs.application.launchOrFocus("Telegram")
+  hs.application.launchOrFocus("Todoist")
 
   hs.layout.apply({
-    {"Safari", nil, benq, getPosition(0.5, 0.0, 0.5, 1.0), nil, nil},
-    {"Mail", nil, benq, getPosition(0.0, 0.0, 0.25, 0.5), nil, nil},
-    {"Slack", nil, benq, getPosition(0.0, 0.5, 0.25, 0.5), nil, nil},
-    {"Spotify", nil, benq, getPosition(0.25, 0.0, 0.25, 0.5), nil, nil},
-    {"Telegram", nil, benq, getPosition(0.25, 0.5, 0.25, 0.5), nil, nil},
-    {"iTerm2", nil, dell, getPosition(0.0, 0.0, 0.65, 1.0), nil, nil},
-    {"Firefox", nil, dell, getPosition(0.65, 0.0, 0.35, 1.0), nil, nil}
+    {"Mail", nil, dell, getPosition(0.0, 0.0, 0.20, 0.5), nil, nil},
+    {"Todoist", nil, dell, getPosition(0.0, 0.5, 0.20, 0.5), nil, nil},
+    {"Safari", nil, dell, getPosition(0.2, 0.0, 0.4, 1.0), nil, nil},
+    {"Firefox", nil, dell, getPosition(0.6, 0.0, 0.4, 1.0), nil, nil},
+    {"iTerm2", nil, benq, getPosition(0.0, 0.0, 1.0, 1.0), nil, nil}
   })
 end)
 
@@ -58,9 +54,9 @@ bindKeyPosition('h', function()
 end)
 
 -- load spoons
-hs.loadSpoon("SpoonInstall")
-hs.loadSpoon("HCalendar")
-hs.loadSpoon("CircleClock")
+-- hs.loadSpoon("SpoonInstall")
+-- hs.loadSpoon("HCalendar")
+-- hs.loadSpoon("CircleClock")
 
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("Config loaded")

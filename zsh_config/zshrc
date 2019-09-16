@@ -301,7 +301,7 @@ fi
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
-  export GOPATH=/Users/ankur/Repositories/GO/
+  export GOPATH=/Users/ankur/Repositories/go/
 
   alias ls="ls -Gh"
   # export NVM_DIR=~/.nvm
