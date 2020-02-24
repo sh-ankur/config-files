@@ -67,8 +67,8 @@ POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="\uE0B1"
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B2"
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="\uE0B2"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{red}"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{red}\uF460%F{073}\uF460%F{109}\uF460%f "
 POWERLEVEL9K_STATUS_VERBOSE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir)
@@ -303,11 +303,9 @@ fi
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
-  export GOPATH=/Users/ankur/Repositories/go/
+  export GOPATH=/opt/go/
 
   alias ls="ls -Gh"
-  # export NVM_DIR=~/.nvm
-  # source $(brew --prefix nvm)/nvm.sh
 
   export PATH="$PATH:$GOPATH/bin"
   export PATH="$PATH:/usr/local/bin"
@@ -319,8 +317,14 @@ then
   export PATH="$PATH:/Users/ankur/Repositories/startup/libphutil/bin"
 fi
 
+# add arcanist to PATH
+export PATH=$PATH:$GOPATH/src/chainifydb.com/arcanist/bin
+
 # Directory management
 alias n=nvim
+alias v=nvim
+alias vim=nvim
+
 alias t=tmux
 alias v=vagrant
 
@@ -328,6 +332,7 @@ alias la="ls -a"
 alias ll="ls -l"
 alias d="dirs -v"
 alias lal="ls -al"
+alias chdb="cd $GOPATH/src/chainifydb.com/chainifydb"
 
 alias diff="colordiff -uNrw"
 alias zshconfig="nvim ~/.zshrc"
@@ -336,4 +341,3 @@ alias grep="$(whence -p grep) --colour=auto $@"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zprof
-#

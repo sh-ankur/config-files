@@ -1,4 +1,3 @@
-
 maximize = hs.layout.maximized
 
 -- external monitors
@@ -34,18 +33,16 @@ end
 
 
 bindKeyPosition('o', function()
-  hs.application.launchOrFocus("iTerm")
-  hs.application.launchOrFocus("Safari")
-  hs.application.launchOrFocus("Mail")
+  hs.application.launchOrFocus("Hyper")
+  hs.application.launchOrFocus("Airmail")
   hs.application.launchOrFocus("Firefox")
-  hs.application.launchOrFocus("Todoist")
+  hs.application.launchOrFocus("Slack")
 
   hs.layout.apply({
-    {"Mail", nil, dell, getPosition(0.0, 0.0, 0.20, 0.5), nil, nil},
-    {"Todoist", nil, dell, getPosition(0.0, 0.5, 0.20, 0.5), nil, nil},
-    {"Safari", nil, dell, getPosition(0.2, 0.0, 0.4, 1.0), nil, nil},
-    {"Firefox", nil, dell, getPosition(0.6, 0.0, 0.4, 1.0), nil, nil},
-    {"iTerm2", nil, benq, getPosition(0.0, 0.0, 1.0, 1.0), nil, nil}
+    {"Airmail", nil, dell, getPosition(0.0, 0.0, 0.40, 0.5), nil, nil},
+    {"Slack", nil, dell, getPosition(0.0, 0.5, 0.40, 0.5), nil, nil},
+    {"Firefox", nil, dell, getPosition(0.4, 0.0, 0.6, 1.0), nil, nil},
+    {"Hyper", nil, benq, getPosition(0.0, 0.0, 1.0, 1.0), nil, nil}
   })
 end)
 

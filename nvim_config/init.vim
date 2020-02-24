@@ -42,16 +42,20 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'shankur90/vim-license'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'chrisbra/csv.vim'
 Plug 'miyakogi/conoline.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvie/vim-flake8'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/lightline.vim'
+Plug 'frazrepo/vim-rainbow'
 
 " Themes
 Plug 'flrnprz/candid.vim'
+" Plug 'tjammer/blayu.vim'
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -84,6 +88,11 @@ set fo+=t
 set laststatus=2
 set t_Co=256
 set foldmethod=indent
+set nofoldenable
+
+" turn hybrid line numbers on
+set number relativenumber
+set nu rnu
 
 let base16colorspace=256
 let g:spacegray_underline_search = 1
@@ -91,20 +100,27 @@ let g:spacegray_italicize_comments = 1
 
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦']
+let g:indent_guides_guide_size = 2
+let g:indent_guides_color_change_percent = 5
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Show status bar for AsyncRun
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_statusline_ontop = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 set termguicolors
 set background=dark
+
 colorscheme candid
 
-" let g:airline_theme = 'candid'
+let g:airline_theme = 'candid'
 
 " deoplete-clang settings
 if has('macunix')
-  let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/8.0.0/include'
-  let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/8.0.0/lib/libclang.dylib'
+  let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/9.0.1/include'
+  let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/9.0.1/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/include/clang/'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'

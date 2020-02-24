@@ -1,10 +1,12 @@
 [user]
-  name = Ankur Sharma
-  email = ankur.sharma@bigdata.uni-saarland.de
+	name = Ankur Sharma
+  email = ankur@chainifydb.com
+  signingkey = EC735137B2034CAC
 [core]
   quotepath = false
   pager = less -x2
   safecrlf = false
+	excludesfile = /Users/ankur/.gitignore_global
 [system]
   untrackedCache = true
 [diff]
@@ -35,4 +37,14 @@
 [rere]
   enabled = true
 [http]
-  sslVerify = true
+	sslVerify = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/ankur/.stCommitMsg
+[gpg]
+	program = gpg
