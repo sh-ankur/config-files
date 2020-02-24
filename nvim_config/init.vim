@@ -55,7 +55,6 @@ Plug 'frazrepo/vim-rainbow'
 
 " Themes
 Plug 'flrnprz/candid.vim'
-" Plug 'tjammer/blayu.vim'
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -111,7 +110,7 @@ let g:airline_statusline_ontop = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 set termguicolors
-set background=dark
+" set background=dark
 
 colorscheme candid
 
@@ -180,7 +179,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Vim License
 let g:licenses_authors_name = 'Ankur Sharma'
 let g:licenses_organizations_name = 'ChainifyDB GmbH'
-let g:licenses_copyright_holders_name = 'Ankur Sharma (ankur.sharma@bigdata.uni-saarland.de)'
+let g:licenses_copyright_holders_name = 'Ankur Sharma (ankur@chainifydb.com)'
 
 " Toggle quickfix window by F1
 noremap <F2> :call asyncrun#quickfix_toggle(8)<cr>

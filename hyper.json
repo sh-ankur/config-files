@@ -9,7 +9,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 16,
+    fontSize: 13,
 
     // font family with optional fallbacks
     fontFamily: '"Monofur Nerd Font", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -43,7 +43,7 @@ module.exports = {
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: 'rgb(14,33,52,0.3)',
+    backgroundColor: 'rgb(14,33,52)',
 
     // terminal selection color
     selectionColor: 'rgba(90,100,100)',
@@ -67,7 +67,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '15px 15px',
+    padding: '5px 5px 10px 5px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -147,11 +147,9 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hyper-material-theme",
     "hyper-electron-highlighter",
     "hyper-dracula",
     "hyper-afterglow",
-    "hyper-chesterish",
     "hyper-pane",
     "hyper-search",
     "hyper-highlight-active-pane",

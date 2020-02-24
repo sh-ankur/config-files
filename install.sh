@@ -1,50 +1,26 @@
 #!/bin/bash
 
-# Update repository state 
-sudo pacman -Syu
+set -x
 
-# Setup ZSH
+CURRDIR=$(pwd)
+
 sudo pacman -S zsh
 chsh -s /bin/zsh
 
-# Set up remote access
-sudo pacman -S openssh
-sudo systemctl enable sshd
-sudo systemctl start sshd
+cd ~
+rm .zshrc
+ln -s "${CURRDIR}/zsh_config/zshrc" .zshrc
 
-# Start with basics
-sudo pacman -S gcc clang make automake autoconf ninja cmake git gdb htop neovim ruby xsel lemonade cargo termite
-
-# Setup NVIDIA drivers
-sudo pacman -S nvidia nvidia-utils cuda cudnn
-
-# More stuffs
-sudo pacman -S subversion
-sudo pacman -S python python2 python-pip python2-pip
-
-# Some python libraries
-sudo pacman -S ipython ipython2
-sudo pacman -S python-numpy python2-numpy
-sudo pacman -S python-matplotlib python2-matplotlib
-sudo pacman -S python-scikit-learn python2-scikit-learn
-sudo pacman -S jupyter python-pandas python2-pandas 
-sudo pacman -S tensorflow-cuda
-
-sudo pip install keras neovim
-sudo pip2 install keras neovim
-
-gem install neovim
-
-# Set up awesome
-sudo pacman -S awesome rlwrap dex vicious
-git clone --recursive https://github.com/lcpz/awesome-copycats.git
-mkdir -p ~/.config/awesome/
-mv -bv awesome-copycats/* ~/.config/awesome 
-rm -rf awesome-copycats
+mkdir -p .config/nvim
+cd .config/nvim
+rm init.vim
+ln -s "${CURRDIR}/nvim_config/init.vim" init.vim
 
 # Setup Vim PLUG
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+cd ${CURRDIR}
 
 git config --global user.name "Ankur Sharma"
 git config --global user.email "ankur.sharma@uni-saarland.de"
