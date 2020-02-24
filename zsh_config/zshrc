@@ -279,12 +279,12 @@ vag() {
 # Linux Specific Settings
 if [[ `uname` == 'Linux' ]]
 then
-    if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-        eval `ssh-agent`
-        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-    fi
-    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-    ssh-add -l > /dev/null || ssh-add
+    # if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+    #     eval `ssh-agent`
+    #     ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+    # fi
+    # export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+    # ssh-add -l > /dev/null || ssh-add
 
     export LINUX=1
     export CC=gcc
@@ -295,7 +295,7 @@ then
     alias ls="ls --color=auto -h"
 
     export PATH="$PATH:$GOPATH/bin"
-    export PATH="$PATH:/home/ankur/.gem/ruby/2.6.0/bin"
+    export PATH="$PATH:/home/ankur/.gem/ruby/2.7.0/bin"
     export PATH="$PATH:/home/ankur/Repositories/startup/arcanist/bin"
     export PATH="$PATH:/home/ankur/Repositories/startup/libphutil/bin"
 fi
