@@ -90,7 +90,7 @@ for dump in $ZSH_COMPDUMP(#qN.m1); do
   if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
     zcompile "$dump"
   fi
-  echo "Initializing Completions..."
+  # echo "Initializing Completions..."
 done
 unsetopt EXTENDEDGLOB
 compinit -C
@@ -187,7 +187,7 @@ zle -N globalias
 custom_vm_status() {
   N=`VBoxManage list runningvms | wc -l`
   if [ $N -ne 0 ]; then
-    echo "\uf308"
+    # echo "\uf308"
   fi
 }
 
@@ -236,7 +236,7 @@ then
     export CC=gcc
     export CXX=g++
 
-    export GOPATH=/home/ankur/Repositories/go
+    export GOPATH=/opt/go
 
     alias ls="ls --color=auto -h"
 
