@@ -54,7 +54,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'frazrepo/vim-rainbow'
 
 " Themes
-Plug 'flrnprz/candid.vim'
+Plug 'flrnd/candid.vim'
 
 " Enable deoplete completion
 let g:deoplete#enable_at_startup = 1
@@ -110,16 +110,16 @@ let g:airline_statusline_ontop = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 set termguicolors
-" set background=dark
-
+set background=dark
 colorscheme candid
 
+let g:lightline = { 'colorscheme': 'candid' }
 let g:airline_theme = 'candid'
 
 " deoplete-clang settings
 if has('macunix')
-  let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/9.0.1/include'
-  let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/9.0.1/lib/libclang.dylib'
+  let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/10.0.0_1/include'
+  let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/10.0.0_1/lib/libclang.dylib'
 else
     let g:deoplete#sources#clang#clang_header = '/usr/include/clang/9/include/'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-9/lib/libclang.so.1'

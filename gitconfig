@@ -1,7 +1,7 @@
 [user]
-	name = Ankur Sharma
+	name = Ankur
   email = ankur@chainifydb.com
-  signingkey = EC735137B2034CAC
+	signingKey = EA190A90E8DE73ED1AB88E17EC735137B2034CAC
 [core]
   quotepath = false
   pager = less -x2
@@ -45,6 +45,8 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/ankur/.stCommitMsg
+	gpgSign = true
 [gpg]
 	program = gpg
+[tag]
+	forceSignAnnotated = true
