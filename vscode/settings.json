@@ -9,5 +9,6 @@
   "git.alwaysSignOff": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 5000,
-  "editor.fontSize": 13
+  "editor.fontSize": 13,
+  "workbench.startupEditor": "newUntitledFile"
 }
