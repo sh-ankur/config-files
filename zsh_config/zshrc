@@ -26,7 +26,7 @@ fi
 
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -187,7 +187,7 @@ zle -N globalias
 custom_vm_status() {
   N=`VBoxManage list runningvms | wc -l`
   if [ $N -ne 0 ]; then
-    # echo "\uf308"
+    echo "\uf308"
   fi
 }
 
@@ -235,24 +235,17 @@ then
     export LINUX=1
     export CC=gcc
     export CXX=g++
-
     export GOPATH=/opt/go
+    export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+    export PATH="$PATH:/home/ankur/.gem/ruby/2.5.0/bin"
 
     alias ls="ls --color=auto -h"
-
-    export PATH="$PATH:$GOPATH/bin"
-    export PATH="$PATH:/home/ankur/.gem/ruby/2.7.0/bin"
-    export PATH="$PATH:/home/ankur/Repositories/startup/arcanist/bin"
-    export PATH="$PATH:/home/ankur/Repositories/startup/libphutil/bin"
 fi
 
 # MacOS Specific Settings
 if [[ `uname` == 'Darwin' ]]
 then
   export GOPATH=/opt/go/
-
-  alias ls="ls -Gh"
-
   export PATH="$PATH:$GOPATH/bin"
   export PATH="$PATH:/usr/local/bin"
   export PATH="$PATH:/opt/local/bin"
@@ -261,6 +254,8 @@ then
   export PATH="$PATH:/usr/local/opt/icu4c/sbin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/arcanist/bin"
   export PATH="$PATH:/Users/ankur/Repositories/startup/libphutil/bin"
+
+  alias ls="ls -Gh"
 fi
 
 # add arcanist to PATH

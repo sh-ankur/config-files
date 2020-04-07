@@ -1,0 +1,10 @@
+{
+  "editor.fontFamily": "'Monofur Nerd Font', 'monospace'",
+  "workbench.colorTheme": "Slack Theme Aubergine Dark",
+  "editor.columnSelection": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.fontFamily": "'Monofur Nerd Font', 'monospace'",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "git.alwaysSignOff": true
+}
