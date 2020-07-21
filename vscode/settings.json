@@ -1,6 +1,5 @@
 {
   "editor.fontFamily": "'Monofur Nerd Font', 'monospace'",
-  "workbench.colorTheme": "Atom One Dark",
   "editor.columnSelection": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontFamily": "'Monofur Nerd Font', 'monospace'",
@@ -9,6 +8,10 @@
   "git.alwaysSignOff": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 5000,
-  "editor.fontSize": 13,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": 1,
+  "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
+  "editor.fontSize": 15,
+  "todo-tree.tree.showScanModeButton": false,
+  "explorer.confirmDragAndDrop": false
 }

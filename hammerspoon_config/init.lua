@@ -2,7 +2,7 @@ maximize = hs.layout.maximized
 
 -- external monitors
 benq = hs.screen.find('BenQ')
-dell = hs.screen.find('DELL')
+lg = hs.screen.find('LG')
 
 mash = {
   position = {"ctrl", "alt", "cmd"},
@@ -33,16 +33,18 @@ end
 
 
 bindKeyPosition('o', function()
-  hs.application.launchOrFocus("Hyper")
+  hs.application.launchOrFocus("iTerm")
   hs.application.launchOrFocus("Airmail")
   hs.application.launchOrFocus("Firefox")
   hs.application.launchOrFocus("Slack")
+  hs.application.launchOrFocus("Visual Studio Code")
 
   hs.layout.apply({
-    {"Airmail", nil, dell, getPosition(0.0, 0.0, 0.40, 0.5), nil, nil},
-    {"Slack", nil, dell, getPosition(0.0, 0.5, 0.40, 0.5), nil, nil},
-    {"Firefox", nil, dell, getPosition(0.4, 0.0, 0.6, 1.0), nil, nil},
-    {"Hyper", nil, benq, getPosition(0.0, 0.0, 1.0, 1.0), nil, nil}
+    {"Airmail", nil, lg, getPosition(0.0, 0.0, 0.40, 0.5), nil, nil},
+    {"Slack", nil, lg, getPosition(0.0, 0.5, 0.40, 0.5), nil, nil},
+    {"Firefox", nil, lg, getPosition(0.4, 0.0, 0.6, 1.0), nil, nil},
+    {"iTerm2", nil, benq, getPosition(0.0, 0.0, 0.5, 1.0), nil, nil},
+    {"Code", nil, benq, getPosition(0.5, 0.0, 0.5, 1.0), nil, nil}
   })
 end)
 
